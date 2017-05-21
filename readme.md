@@ -1,5 +1,6 @@
 Custom Additions:
 
+[code]
 page: tmpl/single-tmpl.php
 replace:
 <?php if( get_post_format() ) { get_template_part('parts/post-formats'); } ?>
@@ -25,3 +26,4 @@ with:
 <?php	
 }
 	 ?>
+[/code]
