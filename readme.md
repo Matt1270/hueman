@@ -10,19 +10,13 @@ with:
  		get_template_part('parts/post-formats');
 	 }else{
 ?>
-  <div class="page-image">
-  	<div class="image-container">
-  		<?php hu_the_post_thumbnail('thumb-large', '', false );//no attr and no placeholder ?>
-  		<?php
-  			$caption = get_post(get_post_thumbnail_id())->post_excerpt;
-  			$description = get_post(get_post_thumbnail_id())->post_content;
-  			echo '<div class="page-image-text">';
-  			if ( isset($caption) && $caption ) echo '<div class="caption">'.$caption.'</div>';
-  			if ( isset($description) && $description ) echo '<div class="description"><i>'.$description.'</i></div>';
-  			echo '</div>';
-  		?>
-  	</div>
-  </div><!--/.page-image-->
+  <div class="image-container">
+  			<?php if ( has_post_thumbnail() ) {
+  				hu_the_post_thumbnail('thumb-large', '', false);//no attr, no placeholder
+  				$caption = get_post(get_post_thumbnail_id())->post_excerpt;
+  				if ( isset($caption) && $caption ) echo '<div class="image-caption">'.$caption.'</div>';
+  			} ?>
+  		</div>
 <?php	
 }
 	 ?>
